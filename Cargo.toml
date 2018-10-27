@@ -1,0 +1,6 @@
+[package]
+name = "mantle"
+version = "0.1.0"
+authors = ["John Terrell <john.terrell@gmail.com>"]
+
+[dependencies]
