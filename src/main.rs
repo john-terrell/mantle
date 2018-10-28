@@ -12,6 +12,11 @@ mod visitor;
 mod group;
 use group::*;
 
+mod scene;
+use scene::*;
+
+mod geometry;
+
 pub struct DumpNameVisitor {
 
 }
@@ -27,19 +32,19 @@ impl visitor::Visitor for DumpNameVisitor {
 }
 
 fn main() {
-    let mut root = Box::new(Group::new());
+    let mut scene = Box::new(Scene::new());
 
-    root.add_child(Arc::new(RwLock::new(Sphere { radius: 10.0, })));
-    root.add_child(Arc::new(RwLock::new(Sphere { radius: 20.0, })));
-    root.add_child(Arc::new(RwLock::new(Sphere { radius: 30.0, })));
+    scene.add_child(Arc::new(RwLock::new(Sphere { radius: 10.0, })));
+    scene.add_child(Arc::new(RwLock::new(Sphere { radius: 20.0, })));
+    scene.add_child(Arc::new(RwLock::new(Sphere { radius: 30.0, })));
 
     let grp = Arc::new(RwLock::new(Group::new()));
 
     grp.write().unwrap().add_child(Arc::new(RwLock::new(Sphere { radius: 101.0, })));
 
-    root.add_child(grp);
+    scene.add_child(grp);
 
     let dv = DumpNameVisitor {};
 
-    root.accept(&dv);
+    scene.accept(&dv);
 }

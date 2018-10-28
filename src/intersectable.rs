@@ -1,5 +1,5 @@
 pub trait Intersectable {
-    fn find_intersection(&self) -> Option<f64> {
+    fn find_intersection(&self, _intesector: Intersector) -> Option<Intersection> {
         return None;
     }
 }
