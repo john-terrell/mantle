@@ -1,5 +1,3 @@
-mod angle;
-mod degrees;
-mod radians;
-mod ray;
-mod vector;
+pub mod angle;
+pub mod ray;
+pub mod vector;

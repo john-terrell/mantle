@@ -16,6 +16,9 @@ mod scene;
 use scene::*;
 
 mod geometry;
+use geometry::angle::*;
+
+mod camera;
 
 pub struct DumpNameVisitor {
 
@@ -32,6 +35,12 @@ impl visitor::Visitor for DumpNameVisitor {
 }
 
 fn main() {
+
+    let a = Angle::degrees(180.0);
+
+    println!("Radians: {}", a.in_radians());
+    println!("Degrees: {}", a.in_degrees());
+
     let mut scene = Box::new(Scene::new());
 
     scene.add_child(Arc::new(RwLock::new(Sphere { radius: 10.0, })));
