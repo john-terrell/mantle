@@ -1,15 +1,4 @@
-use super::ray::Ray;
-
+#[derive(Copy,Clone)]
 pub struct Sphere {
-    pub radius: f64,
-}
-
-pub struct SphereIntersection {
-    intersections: (f64, f64),
-}
-
-impl Sphere {
-    pub fn intersect(ray: Ray, sphere: Sphere) -> Option<SphereIntersection> {
-        return None;
-    }
+    radius: f64
 }

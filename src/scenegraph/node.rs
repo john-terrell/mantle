@@ -1,4 +1,4 @@
-use super::primitive::PrimitiveKey;
+use super::primitive::*;
 use slotmap::*;
 
 new_key_type! { pub struct NodeKey; }
@@ -37,11 +37,11 @@ impl ChildList {
 pub struct Node {
     li: ListItem,
     children: ChildList,
-    primitive: PrimitiveKey,
+    primitive: Primitive,
 }
 
 impl Node {
-    pub fn new(primitive: PrimitiveKey) -> Node {
+    pub fn new(primitive: Primitive) -> Node {
         return Node {
             li: ListItem::new(),
             children: ChildList::new(),

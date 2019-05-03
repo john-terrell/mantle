@@ -13,14 +13,14 @@ impl Visitor for DumpNameVisitor {
     }
 }
 */
-extern crate slotmap;
 use slotmap::{SlotMap, DefaultKey};
 
 mod scenegraph;
-use scenegraph::node::Node;
+use scenegraph::node::{Node, NodeKey};
 
 struct Scene {
-    sm: SlotMap<DefaultKey, Node>
+    nodes: SlotMap<DefaultKey, Node>,
+    root: NodeKey
 }
 
 fn main() {

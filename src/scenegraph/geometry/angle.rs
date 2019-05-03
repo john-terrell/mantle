@@ -1,22 +1,29 @@
-#[derive(Copy, Clone)]
-pub struct Angle {
-    value: f64
+use num_traits::*;
+
+pub struct Degrees<T: Float> {
+    value: T
 }
 
-impl Angle {
-    pub fn degrees(d: f64) -> Angle {
-        return Angle{value: d.to_radians()};
+impl<T: Float> Degrees<T> {
+    fn to_radians(&self) -> T {
+        return self.value.to_radians();
     }
 
-    pub fn radians(r: f64) -> Angle {
-        return Angle{value: r};
-    }
+    fn to_degrees(&self) -> T {
+        return self.value;
+    }    
+}
 
-    pub fn in_degrees(&self) -> f64 {
-        return self.value.to_degrees();
-    }
+pub struct Radians<T: Float> {
+    value: T
+}
 
-    pub fn in_radians(&self) -> f64 {
+impl<T: Float> Radians<T> {
+    fn to_radians(&self) -> T {
         return self.value;
     }
+
+    fn to_degrees(&self) -> T {
+        return self.value.to_degrees();
+    }    
 }

@@ -1,8 +1,7 @@
-use super::visitor::Visitor;
-use slotmap::*;
+use super::geometry::{Matrix44, Sphere};
 
-new_key_type! { pub struct PrimitiveKey; }
-
-pub trait Primitive {
-    fn accept(&self, visitor: &Visitor);
+#[derive(Copy,Clone)]
+pub enum Primitive {
+    Transformation(Matrix44),
+    Sphere(Sphere),
 }
