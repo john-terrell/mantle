@@ -13,17 +13,7 @@ impl Visitor for DumpNameVisitor {
     }
 }
 */
-use slotmap::{SlotMap, DefaultKey};
-
-mod scenegraph;
-use scenegraph::node::{Node, NodeKey};
-
-struct Scene {
-    nodes: SlotMap<DefaultKey, Node>,
-    root: NodeKey
-}
 
 fn main() {
 
 }
-

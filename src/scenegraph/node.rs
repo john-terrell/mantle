@@ -31,6 +31,11 @@ impl ChildList {
             last: NodeKey::null(),
         }
     }
+
+    pub fn append_child(&mut self, old_tail: &mut Node, child: NodeKey) {
+        old_tail.li.next = child;
+        self.last = child
+    }
 }
 
 #[derive(Copy,Clone)]
